@@ -14,9 +14,12 @@
 		58BF94C22A34EC0300227668 /* BuzzBuy_ecommerce.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 58BF94C02A34EC0300227668 /* BuzzBuy_ecommerce.xcdatamodeld */; };
 		58BF94C42A34EC0500227668 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58BF94C32A34EC0500227668 /* Assets.xcassets */; };
 		58BF94C72A34EC0500227668 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58BF94C52A34EC0500227668 /* LaunchScreen.storyboard */; };
+		58BF94DB2A34FFA700227668 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58BF94DA2A34FFA700227668 /* GoogleService-Info.plist */; };
+		AF876A8C5070C22EC7C5C7F4 /* Pods_BuzzBuy_ecommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D789A8430F7ED3D2ED5EBB59 /* Pods_BuzzBuy_ecommerce.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1077855FE03BA69EA75F8E34 /* Pods-BuzzBuy-ecommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuzzBuy-ecommerce.debug.xcconfig"; path = "Target Support Files/Pods-BuzzBuy-ecommerce/Pods-BuzzBuy-ecommerce.debug.xcconfig"; sourceTree = "<group>"; };
 		58BF94B42A34EC0300227668 /* BuzzBuy-ecommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BuzzBuy-ecommerce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58BF94B72A34EC0300227668 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58BF94B92A34EC0300227668 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,10 @@
 		58BF94C32A34EC0500227668 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58BF94C62A34EC0500227668 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58BF94C82A34EC0500227668 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58BF94DA2A34FFA700227668 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		58BF94DC2A35007600227668 /* BuzzBuy-ecommerce.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BuzzBuy-ecommerce.entitlements"; sourceTree = "<group>"; };
+		D789A8430F7ED3D2ED5EBB59 /* Pods_BuzzBuy_ecommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuzzBuy_ecommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF5D75027DFFD5EB8D6BAF7C /* Pods-BuzzBuy-ecommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuzzBuy-ecommerce.release.xcconfig"; path = "Target Support Files/Pods-BuzzBuy-ecommerce/Pods-BuzzBuy-ecommerce.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF876A8C5070C22EC7C5C7F4 /* Pods_BuzzBuy_ecommerce.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +52,8 @@
 			children = (
 				58BF94B62A34EC0300227668 /* BuzzBuy-ecommerce */,
 				58BF94B52A34EC0300227668 /* Products */,
+				FF9BB91E4200891B7E003140 /* Pods */,
+				927E949FEBD08C155E412AE1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +68,8 @@
 		58BF94B62A34EC0300227668 /* BuzzBuy-ecommerce */ = {
 			isa = PBXGroup;
 			children = (
+				58BF94DC2A35007600227668 /* BuzzBuy-ecommerce.entitlements */,
+				58BF94DA2A34FFA700227668 /* GoogleService-Info.plist */,
 				58BF94B72A34EC0300227668 /* AppDelegate.swift */,
 				58BF94B92A34EC0300227668 /* SceneDelegate.swift */,
 				58BF94BB2A34EC0300227668 /* ViewController.swift */,
@@ -70,6 +82,23 @@
 			path = "BuzzBuy-ecommerce";
 			sourceTree = "<group>";
 		};
+		927E949FEBD08C155E412AE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D789A8430F7ED3D2ED5EBB59 /* Pods_BuzzBuy_ecommerce.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FF9BB91E4200891B7E003140 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1077855FE03BA69EA75F8E34 /* Pods-BuzzBuy-ecommerce.debug.xcconfig */,
+				DF5D75027DFFD5EB8D6BAF7C /* Pods-BuzzBuy-ecommerce.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +106,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58BF94CB2A34EC0500227668 /* Build configuration list for PBXNativeTarget "BuzzBuy-ecommerce" */;
 			buildPhases = (
+				DFA36599A8D60848492C4B93 /* [CP] Check Pods Manifest.lock */,
 				58BF94B02A34EC0300227668 /* Sources */,
 				58BF94B12A34EC0300227668 /* Frameworks */,
 				58BF94B22A34EC0300227668 /* Resources */,
+				DCC3B5CBF53EA305AE6B73ED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,12 +160,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				58BF94C72A34EC0500227668 /* LaunchScreen.storyboard in Resources */,
+				58BF94DB2A34FFA700227668 /* GoogleService-Info.plist in Resources */,
 				58BF94C42A34EC0500227668 /* Assets.xcassets in Resources */,
 				58BF94BF2A34EC0300227668 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DCC3B5CBF53EA305AE6B73ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BuzzBuy-ecommerce/Pods-BuzzBuy-ecommerce-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BuzzBuy-ecommerce/Pods-BuzzBuy-ecommerce-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BuzzBuy-ecommerce/Pods-BuzzBuy-ecommerce-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFA36599A8D60848492C4B93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BuzzBuy-ecommerce-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		58BF94B02A34EC0300227668 /* Sources */ = {
@@ -286,9 +360,11 @@
 		};
 		58BF94CC2A34EC0500227668 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1077855FE03BA69EA75F8E34 /* Pods-BuzzBuy-ecommerce.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "BuzzBuy-ecommerce/BuzzBuy-ecommerce.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -313,9 +389,11 @@
 		};
 		58BF94CD2A34EC0500227668 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF5D75027DFFD5EB8D6BAF7C /* Pods-BuzzBuy-ecommerce.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "BuzzBuy-ecommerce/BuzzBuy-ecommerce.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
