@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1061084763640-5mks6ftcluf8m0p9safkknv75j7nuho8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1061084763640-5mks6ftcluf8m0p9safkknv75j7nuho8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAeNoRD-Va4V7ivNZIrq9KvG6MPV66H6nQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1061084763640</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>proyectofinal.com.BuzzBuy-ecommerce</string>
+	<key>PROJECT_ID</key>
+	<string>buzzbuy-ecommerce</string>
+	<key>STORAGE_BUCKET</key>
+	<string>buzzbuy-ecommerce.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1061084763640:ios:574deb59829eb163c3f20d</string>
+	<key>DATABASE_URL</key>
+	<string>https://buzzbuy-ecommerce-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
