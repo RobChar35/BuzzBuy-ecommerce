@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Necesitamos permisos para acceder a tu album de fotos</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Usando el microfono</string>
-	<key>GIDClientID</key>
-	<string>1061084763640-5mks6ftcluf8m0p9safkknv75j7nuho8.apps.googleusercontent.com</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -19,6 +13,8 @@
 			</array>
 		</dict>
 	</array>
+	<key>GIDClientID</key>
+	<string>1061084763640-5mks6ftcluf8m0p9safkknv75j7nuho8.apps.googleusercontent.com</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
