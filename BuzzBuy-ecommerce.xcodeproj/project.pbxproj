@@ -15,6 +15,8 @@
 		58BF94C22A34EC0300227668 /* BuzzBuy_ecommerce.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 58BF94C02A34EC0300227668 /* BuzzBuy_ecommerce.xcdatamodeld */; };
 		58BF94C42A34EC0500227668 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58BF94C32A34EC0500227668 /* Assets.xcassets */; };
 		58BF94C72A34EC0500227668 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58BF94C52A34EC0500227668 /* LaunchScreen.storyboard */; };
+		58F968F02A3D09EC003956C4 /* InventarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F968EF2A3D09EC003956C4 /* InventarioViewController.swift */; };
+		58F968F42A3D0E7C003956C4 /* Producto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F968F32A3D0E7C003956C4 /* Producto.swift */; };
 		AF876A8C5070C22EC7C5C7F4 /* Pods_BuzzBuy_ecommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D789A8430F7ED3D2ED5EBB59 /* Pods_BuzzBuy_ecommerce.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,8 @@
 		58BF94C62A34EC0500227668 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58BF94C82A34EC0500227668 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58BF94DC2A35007600227668 /* BuzzBuy-ecommerce.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BuzzBuy-ecommerce.entitlements"; sourceTree = "<group>"; };
+		58F968EF2A3D09EC003956C4 /* InventarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventarioViewController.swift; sourceTree = "<group>"; };
+		58F968F32A3D0E7C003956C4 /* Producto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Producto.swift; sourceTree = "<group>"; };
 		D789A8430F7ED3D2ED5EBB59 /* Pods_BuzzBuy_ecommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuzzBuy_ecommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF5D75027DFFD5EB8D6BAF7C /* Pods-BuzzBuy-ecommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuzzBuy-ecommerce.release.xcconfig"; path = "Target Support Files/Pods-BuzzBuy-ecommerce/Pods-BuzzBuy-ecommerce.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +72,8 @@
 		58BF94B62A34EC0300227668 /* BuzzBuy-ecommerce */ = {
 			isa = PBXGroup;
 			children = (
+				58F968F22A3D0E53003956C4 /* Modelos */,
+				58F968F12A3D0DE4003956C4 /* ViewController */,
 				58BE5E532A3B960B008B2600 /* GoogleService-Info.plist */,
 				58BF94DC2A35007600227668 /* BuzzBuy-ecommerce.entitlements */,
 				58BF94B72A34EC0300227668 /* AppDelegate.swift */,
@@ -80,6 +86,22 @@
 				58BF94C02A34EC0300227668 /* BuzzBuy_ecommerce.xcdatamodeld */,
 			);
 			path = "BuzzBuy-ecommerce";
+			sourceTree = "<group>";
+		};
+		58F968F12A3D0DE4003956C4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				58F968EF2A3D09EC003956C4 /* InventarioViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		58F968F22A3D0E53003956C4 /* Modelos */ = {
+			isa = PBXGroup;
+			children = (
+				58F968F32A3D0E7C003956C4 /* Producto.swift */,
+			);
+			path = Modelos;
 			sourceTree = "<group>";
 		};
 		927E949FEBD08C155E412AE1 /* Frameworks */ = {
@@ -216,7 +238,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				58BF94C22A34EC0300227668 /* BuzzBuy_ecommerce.xcdatamodeld in Sources */,
+				58F968F02A3D09EC003956C4 /* InventarioViewController.swift in Sources */,
 				58BF94BC2A34EC0300227668 /* ViewController.swift in Sources */,
+				58F968F42A3D0E7C003956C4 /* Producto.swift in Sources */,
 				58BF94B82A34EC0300227668 /* AppDelegate.swift in Sources */,
 				58BF94BA2A34EC0300227668 /* SceneDelegate.swift in Sources */,
 			);
