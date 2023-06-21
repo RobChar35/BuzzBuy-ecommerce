@@ -20,6 +20,8 @@
 		58F968F72A3D2117003956C4 /* IniciarSesionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F968F62A3D2117003956C4 /* IniciarSesionViewController.swift */; };
 		58F968F92A3D214A003956C4 /* RegistrarseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F968F82A3D214A003956C4 /* RegistrarseViewController.swift */; };
 		AF876A8C5070C22EC7C5C7F4 /* Pods_BuzzBuy_ecommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D789A8430F7ED3D2ED5EBB59 /* Pods_BuzzBuy_ecommerce.framework */; };
+		E8F31F562A435177006FDC87 /* FirstTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F31F552A435177006FDC87 /* FirstTableViewController.swift */; };
+		E8F31F582A436381006FDC87 /* AgregarProductoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F31F572A436381006FDC87 /* AgregarProductoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		58F968F82A3D214A003956C4 /* RegistrarseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarseViewController.swift; sourceTree = "<group>"; };
 		D789A8430F7ED3D2ED5EBB59 /* Pods_BuzzBuy_ecommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuzzBuy_ecommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF5D75027DFFD5EB8D6BAF7C /* Pods-BuzzBuy-ecommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuzzBuy-ecommerce.release.xcconfig"; path = "Target Support Files/Pods-BuzzBuy-ecommerce/Pods-BuzzBuy-ecommerce.release.xcconfig"; sourceTree = "<group>"; };
+		E8F31F552A435177006FDC87 /* FirstTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTableViewController.swift; sourceTree = "<group>"; };
+		E8F31F572A436381006FDC87 /* AgregarProductoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarProductoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 			children = (
 				58F968F52A3D20FC003956C4 /* Authentication */,
 				58F968EF2A3D09EC003956C4 /* InventarioViewController.swift */,
+				E8F31F552A435177006FDC87 /* FirstTableViewController.swift */,
+				E8F31F572A436381006FDC87 /* AgregarProductoViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -253,6 +259,8 @@
 			files = (
 				58BF94C22A34EC0300227668 /* BuzzBuy_ecommerce.xcdatamodeld in Sources */,
 				58F968F02A3D09EC003956C4 /* InventarioViewController.swift in Sources */,
+				E8F31F582A436381006FDC87 /* AgregarProductoViewController.swift in Sources */,
+				E8F31F562A435177006FDC87 /* FirstTableViewController.swift in Sources */,
 				58F968F72A3D2117003956C4 /* IniciarSesionViewController.swift in Sources */,
 				58BF94BC2A34EC0300227668 /* ViewController.swift in Sources */,
 				58F968F92A3D214A003956C4 /* RegistrarseViewController.swift in Sources */,

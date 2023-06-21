@@ -8,6 +8,7 @@
 import Foundation
 
 class Producto{
+    var id = ""
     var nombre = ""
     var descripcion = ""
     var cantidad = ""
