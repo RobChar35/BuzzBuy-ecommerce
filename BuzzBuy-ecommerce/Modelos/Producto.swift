@@ -14,4 +14,6 @@ class Producto{
     var cantidad = ""
     var precio = ""
     var imagenURL = ""
+    var userID = ""
+    var categoria = ""
 }

@@ -9,12 +9,31 @@ import UIKit
 import FirebaseDatabase
 import FirebaseCore
 import FirebaseStorage
+import FirebaseAuth
 
 class FirstTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var productos: [Producto] = []
+    var userID:String = ""
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         productos.count
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Verificar si hay un usuario logueado
+        if Auth.auth().currentUser == nil {
+            // No hay un usuario logueado, redirigir a la página de inicio de sesión o a la vista principal de autenticación
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+            
+            if let window = UIApplication.shared.windows.first {
+                window.rootViewController = loginViewController
+                window.makeKeyAndVisible()
+            }
+        }
+    }
+    
     var ref: DatabaseReference!
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -32,7 +51,23 @@ class FirstTableViewController: UIViewController, UITableViewDelegate, UITableVi
         productsTable.dataSource = self
         productsTable.setEditing(true, animated: false)
         ref = Database.database().reference()
-        ref.child("productos").observe(.value) { [weak self] (snapshot) in
+        if let currentUser = Auth.auth().currentUser {
+                    // El usuario está logueado
+                    userID = currentUser.uid // Obtener el ID del usuario
+
+                    // Realizar la búsqueda en Realtime Database utilizando el ID del usuario
+                    let databaseRef = Database.database().reference().child("usuarios").child(userID).child("datos_personales")
+                    databaseRef.observeSingleEvent(of: .value) { snapshot in
+                        if let userData = snapshot.value as? [String: Any],
+                           let name = userData["nombre"] as? String {
+                            // Obtener el nombre del usuario
+                            print("Nombre del usuario:", name)
+                        } else {
+                            print("No se encontró información del usuario en Realtime Database")
+                        }
+                    }
+        }
+        ref.child("productos").queryOrdered(byChild: "userID").queryEqual(toValue: userID).observe(.value) { [weak self] (snapshot) in
                     guard let self = self else { return }
                     
                     // Borra los productos existentes antes de agregar los nuevos
@@ -50,6 +85,7 @@ class FirstTableViewController: UIViewController, UITableViewDelegate, UITableVi
                             producto.cantidad = productoData["cantidad"] as? String ?? ""
                             producto.precio = productoData["precio"] as? String ?? ""
                             producto.imagenURL = productoData["imagenURL"] as? String ?? ""
+                            producto.categoria = productoData["categoria"] as? String ?? ""
                             self.productos.append(producto)
                         }
                     }
@@ -71,6 +107,7 @@ class FirstTableViewController: UIViewController, UITableViewDelegate, UITableVi
             let producto = sender as? Producto {
                 agregarProductoVC.productoEditado = producto
                 agregarProductoVC.productoID = producto.id
+                agregarProductoVC.categoriapreseleccionada = producto.categoria
         }
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

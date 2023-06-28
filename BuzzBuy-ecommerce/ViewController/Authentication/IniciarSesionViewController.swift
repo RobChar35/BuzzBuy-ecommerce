@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class IniciarSesionViewController: UIViewController {
 
@@ -21,6 +22,24 @@ class IniciarSesionViewController: UIViewController {
     
     // Botones para iniciar sesion
     @IBAction func IniciarSesionTapped(_ sender: Any) {
+        Auth.auth().signIn(withEmail: emailIniciarSesion.text!, password: passwordIniciarSesion.text!) {
+            (user, error) in
+            print("Intentando iniciar sesion")
+            
+            if error != nil {
+                print("Error al iniciar sesion: \(error)")
+                
+                let alert = UIAlertController(title: "Error al iniciar sesion", message: "Se ingresaron datos incorrectos o el usuario no existe", preferredStyle: .alert)
+
+                let btnCancelar = UIAlertAction(title: "Cancelar", style: .default, handler: {(UIAlertAction) in })
+
+                alert.addAction(btnCancelar)
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                print("Inicio de sesion exitoso")
+                self.performSegue(withIdentifier: "iniciarSesionSegue", sender: nil)
+            }
+        }
     }
     
     @IBAction func IniciarSesionGoogleTapped(_ sender: Any) {

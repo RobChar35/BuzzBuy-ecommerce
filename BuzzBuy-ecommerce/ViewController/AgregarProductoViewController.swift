@@ -10,14 +10,47 @@ import FirebaseCore
 import FirebaseDatabase
 import FirebaseStorage
 import SDWebImage
+import FirebaseAuth
 
-class AgregarProductoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AgregarProductoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
     
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        categorias.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            return categorias[row]
+        }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            categoriaseleccionada = categorias[row] // Guardar la selección del usuario en la variable categoriaseleccionada
+        }
+
+    var categoriapreseleccionada:String = ""
+    var categoriaseleccionada:String = ""
+    let categorias: [String] = ["Cocina", "Tecnología", "Herramientas", "Juegos", "Mecanica"]
     var ref: DatabaseReference!
     var imagenurl: String = ""
     var imagenID = NSUUID().uuidString
     var imagePicker = UIImagePickerController()
-
+    var userID:String = ""
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Verificar si hay un usuario logueado
+        if Auth.auth().currentUser == nil {
+            // No hay un usuario logueado, redirigir a la página de inicio de sesión o a la vista principal de autenticación
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+            
+            if let window = UIApplication.shared.windows.first {
+                window.rootViewController = loginViewController
+                window.makeKeyAndVisible()
+            }
+        }
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
             imagen.image = image
@@ -28,7 +61,27 @@ class AgregarProductoViewController: UIViewController, UIImagePickerControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        selectCategoria.dataSource = self
+        selectCategoria.delegate = self
         ref = Database.database().reference()
+        
+        if let currentUser = Auth.auth().currentUser {
+                    // El usuario está logueado
+                    userID = currentUser.uid // Obtener el ID del usuario
+
+                    // Realizar la búsqueda en Realtime Database utilizando el ID del usuario
+                    let databaseRef = Database.database().reference().child("usuarios").child(userID).child("datos_personales")
+                    databaseRef.observeSingleEvent(of: .value) { snapshot in
+                        if let userData = snapshot.value as? [String: Any],
+                           let name = userData["nombre"] as? String {
+                            // Obtener el nombre del usuario
+                            print("Nombre del usuario:", name)
+                        } else {
+                            print("No se encontró información del usuario en Realtime Database")
+                        }
+                    }
+        }
+        
         if let producto = productoEditado {
                     // Rellenar los campos con los datos del producto existente
                     botonagregar.setTitle("Editar", for: .normal)
@@ -38,6 +91,12 @@ class AgregarProductoViewController: UIViewController, UIImagePickerControllerDe
                     txtPrecio.text = producto.precio
                     imagen.sd_setImage(with: URL(string: producto.imagenURL), completed: nil)
                 }
+        selectCategoria.reloadAllComponents()
+        if let selectedIndex = categorias.firstIndex(of: categoriapreseleccionada) {
+                    selectCategoria.selectRow(selectedIndex, inComponent: 0, animated: false)
+                }
+        
+        
     }
     
     @IBOutlet weak var txtNombre: UITextField!
@@ -70,11 +129,12 @@ class AgregarProductoViewController: UIViewController, UIImagePickerControllerDe
             let imagenAnteriorRef = Storage.storage().reference(forURL: producto.imagenURL)
             
             // Eliminar la imagen anterior
+            dispatchGroup.enter()
             imagenAnteriorRef.delete { error in
                 if let error = error {
                     print("Error al eliminar la imagen anterior: \(error.localizedDescription)")
                 } else {
-                    dispatchGroup.enter()
+                    
                     cargarImagen.putData(imagenData!, metadata: nil) { (metadata, error) in
                         if let error = error {
                             print("Ocurrió un error al subir imagen: \(error)")
@@ -139,7 +199,9 @@ class AgregarProductoViewController: UIViewController, UIImagePickerControllerDe
                         "descripcion": descripcion,
                         "cantidad": cantidad,
                         "precio": precio,
-                        "imagenURL": self.imagenurl
+                        "imagenURL": self.imagenurl,
+                        "categoria": self.categoriaseleccionada,
+                        "userID": self.userID
                     ]
                     
             if let producto = self.productoEditado {
@@ -188,6 +250,10 @@ class AgregarProductoViewController: UIViewController, UIImagePickerControllerDe
 
 
     }
+    
+    @IBOutlet weak var selectCategoria: UIPickerView!
+    
+
     
     /*
      // MARK: - Navigation
