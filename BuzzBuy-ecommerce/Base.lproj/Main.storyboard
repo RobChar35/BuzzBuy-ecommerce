@@ -531,8 +531,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WhatsApp Image 2023-07-05 at 10.07.35" translatesAutoresizingMaskIntoConstraints="NO" id="3lH-Hv-nP8">
-                                <rect key="frame" x="135" y="44" width="145" height="92"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WhatsApp Image 2023-07-05 at 12.12.24" translatesAutoresizingMaskIntoConstraints="NO" id="3lH-Hv-nP8">
+                                <rect key="frame" x="169" y="66" width="77" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -721,6 +721,10 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WhatsApp Image 2023-07-05 at 12.12.24" translatesAutoresizingMaskIntoConstraints="NO" id="znd-iX-Kek">
+                                <rect key="frame" x="169" y="68" width="77" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DdM-ul-Q8F"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -766,7 +770,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PoT-S7-FYw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1952" y="-295"/>
+            <point key="canvasLocation" x="-1952.1739130434785" y="-295.3125"/>
         </scene>
         <!--Detalles del producto 1-->
         <scene sceneID="XOs-eC-zEz">
@@ -902,7 +906,7 @@
         <segue reference="Azi-HI-kRB"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="WhatsApp Image 2023-07-05 at 10.07.35" width="1084" height="1028"/>
+        <image name="WhatsApp Image 2023-07-05 at 12.12.24" width="1084" height="1028"/>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="google.png" width="18" height="18"/>
         <namedColor name="AccentColor">

@@ -14,6 +14,7 @@ class PreCompraViewController: UIViewController {
     var vendedorID: String = ""
     var userLoggedId: String = ""
     var productoID: String = ""
+    var cantidadd: String = ""
     override func viewDidLoad() {
             super.viewDidLoad()
             if let currentUser = Auth.auth().currentUser {
@@ -34,7 +35,7 @@ class PreCompraViewController: UIViewController {
                 cantidad.text = producto.cantidad
                 precio.text = "S/. " + producto.precio
                 categoria.text = producto.categoria
-                
+                self.cantidadd = producto.cantidad
                 
                 // Realizar la búsqueda en la base de datos en tiempo real
                 let databaseRef = Database.database().reference()
@@ -107,33 +108,58 @@ class PreCompraViewController: UIViewController {
                     alertController.addAction(okAction)
                     present(alertController, animated: true, completion: nil)
         }else{
-            let alertController = UIAlertController(title: "Alerta", message: "¿Esta seguro de comprar este producto?", preferredStyle: .alert)
+            if cantidadd == "0"{
+                let alertController = UIAlertController(title: "Alerta", message: "Este producto ya no se encuentra disponible", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                        alertController.addAction(okAction)
+                        present(alertController, animated: true, completion: nil)
+            }else{
+                let alertController = UIAlertController(title: "Alerta", message: "¿Esta seguro de comprar este producto?", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "Confirmar", style: .default) { (_) in
                     print("Compra confirmada")
-                                
-                                // Crear un nuevo nodo "compras" en la base de datos
-                                let databaseRef = Database.database().reference()
-                                let comprasRef = databaseRef.child("compras")
-                                let nuevaCompraRef = comprasRef.childByAutoId()
-                                
-                                // Guardar los valores en los campos correspondientes
-                                nuevaCompraRef.child("vendedor").setValue(self.vendedorID)
-                                nuevaCompraRef.child("comprador").setValue(self.userLoggedId)
-                                nuevaCompraRef.child("producto").setValue(self.productoID)
-                                
-                    let compraConfirmadaAlertController = UIAlertController(title: "Compra Confirmada", message: "¡Su compra ha sido realizada con éxito!", preferredStyle: .alert)
-                                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                                compraConfirmadaAlertController.addAction(okAction)
-                                self.present(compraConfirmadaAlertController, animated: true, completion: nil)
-                        // Aquí puedes agregar tu lógica para realizar la compra
+                    
+                    // Crear un nuevo nodo "compras" en la base de datos
+                    let databaseRef = Database.database().reference()
+                    let comprasRef = databaseRef.child("compras")
+                    let nuevaCompraRef = comprasRef.childByAutoId()
+                    
+                    // Guardar los valores en los campos correspondientes
+                    nuevaCompraRef.child("vendedor").setValue(self.vendedorID)
+                    nuevaCompraRef.child("comprador").setValue(self.userLoggedId)
+                    nuevaCompraRef.child("producto").setValue(self.productoID)
+                    
+                    // Obtener la referencia al producto
+                    let productosRef = databaseRef.child("productos")
+                    let productoRef = productosRef.child(self.productoID)
+                    
+                    // Obtener el valor actual de "cantidad" del producto
+                    productoRef.child("cantidad").observeSingleEvent(of: .value) { (snapshot) in
+                        if let cantidadString = snapshot.value as? String,
+                           var cantidad = Int(cantidadString) {
+                            // Restar 1 a la cantidad
+                            cantidad -= 1
+                            
+                            // Actualizar el campo "cantidad" en la base de datos
+                            productoRef.child("cantidad").setValue(String(cantidad))
+                            
+                            // Mostrar una alerta de compra confirmada
+                            let compraConfirmadaAlertController = UIAlertController(title: "Compra Confirmada", message: "¡Su compra ha sido realizada con éxito!", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                            compraConfirmadaAlertController.addAction(okAction)
+                            self.present(compraConfirmadaAlertController, animated: true, completion: nil)
+                        }
                     }
-                    let cancelAction = UIAlertAction(title: "Cancelar", style: .default, handler: nil)
-                    alertController.addAction(okAction)
-                    alertController.addAction(cancelAction)
-                    present(alertController, animated: true, completion: nil)
+                    
+                    // Aquí puedes agregar tu lógica adicional después de guardar los datos de la compra
+                }
+
+                        let cancelAction = UIAlertAction(title: "Cancelar", style: .default, handler: nil)
+                        alertController.addAction(okAction)
+                        alertController.addAction(cancelAction)
+                        present(alertController, animated: true, completion: nil)
+            }
+            }
         }
-        
-    }
     
     @IBOutlet weak var vendedor: UILabel!
     /*
