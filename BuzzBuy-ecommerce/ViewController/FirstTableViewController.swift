@@ -41,6 +41,11 @@ class FirstTableViewController: UIViewController, UITableViewDelegate, UITableVi
         let producto = productos[indexPath.row]
         cell.textLabel?.text = producto.nombre
         cell.detailTextLabel?.text = producto.descripcion
+        
+        let imageURLString = producto.imagenURL
+        let imageURL = URL(string: imageURLString)
+        cell.imageView!.sd_setImage(with: URL(string: producto.imagenURL), completed: nil)
+        
         return cell
     }
 

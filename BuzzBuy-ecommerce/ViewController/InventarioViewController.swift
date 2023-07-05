@@ -37,6 +37,27 @@ class InventarioViewController: UIViewController, UITableViewDelegate, UITableVi
         productos.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let producto = productos[indexPath.row]
+        performSegue(withIdentifier: "detallessegue", sender: producto)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detallessegue" {
+            if let indexPath = tableInventario.indexPathForSelectedRow {
+                let producto = productos[indexPath.row]
+                let sanitizedID = producto.id.replacingOccurrences(of: ".", with: "_")
+                producto.id = sanitizedID  // Modificar el ID del producto
+                
+                let destinationVC = segue.destination as! PreCompraViewController
+                destinationVC.producto = producto
+            }
+        }
+    }
+
+
+
+    
     /*override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
             // Inicializa la propiedad imageni antes de llamar a super.init()
             self.imageni = UIImageView()
@@ -92,27 +113,16 @@ class InventarioViewController: UIViewController, UITableViewDelegate, UITableVi
 
     
     @IBAction func cerrarSesión(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-            print("Se ha cerrado sesión correctamente")
-            let alert = UIAlertController(title: "Cierre de Sesión", message: "Se ha cerrado sesión correctamente", preferredStyle: .alert)
-            
-            let btnOK = UIAlertAction(title: "Aceptar", style: .default, handler: {
-                (UIAlertAction) in
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        print("Cerrando sesion")
                 
-                if let window = UIApplication.shared.windows.first {
-                    window.rootViewController = loginViewController
-                    window.makeKeyAndVisible()
-                }
-            })
+        let firebaseAuth = Auth.auth()
+        do {
+            print("La sesion fue cerrada exitosamente")
             
-            alert.addAction(btnOK)
-            self.present(alert, animated: true, completion: nil)
-            
-        } catch let error {
-            print("Error al cerrar sesión:", error.localizedDescription)
+            try firebaseAuth.signOut()
+            dismiss(animated: true, completion: nil)
+        } catch let signOutError as NSError {
+            print("Error al cerrar sesion: \(signOutError)")
         }
     }
     
@@ -359,12 +369,13 @@ class CustomProductCell: UITableViewCell {
             "productImageView": productImageView
         ]
 
-        let imageHeight: CGFloat = 100.0 // Altura predeterminada para la imagen
+        let imageWidth: CGFloat = 20.0
+        let imageHeight: CGFloat = 40.0
 
         contentView.addConstraints([
             NSLayoutConstraint(item: productImageView, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1.0, constant: 8.0),
             NSLayoutConstraint(item: productImageView, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: productImageView, attribute: .width, relatedBy: .equal, toItem: contentView, attribute: .width, multiplier: 0.8, constant: 0.0),
+            NSLayoutConstraint(item: productImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: imageWidth),
             NSLayoutConstraint(item: productImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: imageHeight),
 
             NSLayoutConstraint(item: nameLabel, attribute: .top, relatedBy: .equal, toItem: productImageView, attribute: .bottom, multiplier: 1.0, constant: 8.0),
@@ -382,15 +393,47 @@ class CustomProductCell: UITableViewCell {
         ])
     }
 
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
+        let size = image.size
+
+        let widthRatio = targetSize.width / size.width
+        let heightRatio = targetSize.height / size.height
+
+        let newSize: CGSize
+        if widthRatio > heightRatio {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
+        }
+
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage
+    }
+
     // Configurar los datos de la celda
     func configure(with product: Producto) {
         nameLabel.text = product.nombre
         descriptionLabel.text = product.descripcion
         priceLabel.text = product.precio
+
         // Configurar la imagen del producto utilizando una URL o datos de imagen
-        // productImageView.image = ...
+        if let imageURL = URL(string: product.imagenURL),
+           let imageData = try? Data(contentsOf: imageURL),
+           let image = UIImage(data: imageData) {
+            let resizedImage = resizeImage(image: image, targetSize: CGSize(width: 80.0, height: 80.0)) // Cambiar el tamaño de la imagen según tus necesidades
+            productImageView.image = resizedImage
+        } else {
+            // Si no se puede cargar la imagen, puedes mostrar una imagen de marcador de posición o dejarla vacía
+            productImageView.image = UIImage(named: "placeholder")
+        }
     }
 }
+
 
 
 

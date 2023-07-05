@@ -20,6 +20,7 @@
 		58F968F72A3D2117003956C4 /* IniciarSesionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F968F62A3D2117003956C4 /* IniciarSesionViewController.swift */; };
 		58F968F92A3D214A003956C4 /* RegistrarseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F968F82A3D214A003956C4 /* RegistrarseViewController.swift */; };
 		AF876A8C5070C22EC7C5C7F4 /* Pods_BuzzBuy_ecommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D789A8430F7ED3D2ED5EBB59 /* Pods_BuzzBuy_ecommerce.framework */; };
+		E89C8B202A55C8A800E7F02A /* PreCompraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89C8B1F2A55C8A800E7F02A /* PreCompraViewController.swift */; };
 		E8F31F562A435177006FDC87 /* FirstTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F31F552A435177006FDC87 /* FirstTableViewController.swift */; };
 		E8F31F582A436381006FDC87 /* AgregarProductoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F31F572A436381006FDC87 /* AgregarProductoViewController.swift */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		58F968F82A3D214A003956C4 /* RegistrarseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarseViewController.swift; sourceTree = "<group>"; };
 		D789A8430F7ED3D2ED5EBB59 /* Pods_BuzzBuy_ecommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuzzBuy_ecommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF5D75027DFFD5EB8D6BAF7C /* Pods-BuzzBuy-ecommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuzzBuy-ecommerce.release.xcconfig"; path = "Target Support Files/Pods-BuzzBuy-ecommerce/Pods-BuzzBuy-ecommerce.release.xcconfig"; sourceTree = "<group>"; };
+		E89C8B1F2A55C8A800E7F02A /* PreCompraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreCompraViewController.swift; sourceTree = "<group>"; };
 		E8F31F552A435177006FDC87 /* FirstTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTableViewController.swift; sourceTree = "<group>"; };
 		E8F31F572A436381006FDC87 /* AgregarProductoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarProductoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +105,7 @@
 				58F968EF2A3D09EC003956C4 /* InventarioViewController.swift */,
 				E8F31F552A435177006FDC87 /* FirstTableViewController.swift */,
 				E8F31F572A436381006FDC87 /* AgregarProductoViewController.swift */,
+				E89C8B1F2A55C8A800E7F02A /* PreCompraViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				58F968F42A3D0E7C003956C4 /* Producto.swift in Sources */,
 				58BF94B82A34EC0300227668 /* AppDelegate.swift in Sources */,
 				58BF94BA2A34EC0300227668 /* SceneDelegate.swift in Sources */,
+				E89C8B202A55C8A800E7F02A /* PreCompraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
