@@ -109,12 +109,12 @@ class PreCompraViewController: UIViewController {
                     present(alertController, animated: true, completion: nil)
         }else{
             if cantidadd == "0"{
-                let alertController = UIAlertController(title: "Alerta", message: "Este producto ya no se encuentra disponible", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Lo sentimos", message: "Este producto ya no se encuentra disponible", preferredStyle: .alert)
                         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                         alertController.addAction(okAction)
                         present(alertController, animated: true, completion: nil)
             }else{
-                let alertController = UIAlertController(title: "Alerta", message: "¿Esta seguro de comprar este producto?", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Confirmación", message: "¿Esta seguro de comprar este producto?", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "Confirmar", style: .default) { (_) in
                     print("Compra confirmada")
                     

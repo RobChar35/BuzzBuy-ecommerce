@@ -110,23 +110,6 @@ class InventarioViewController: UIViewController, UITableViewDelegate, UITableVi
             return cell
     }
 
-
-    
-    @IBAction func cerrarSesión(_ sender: Any) {
-        print("Cerrando sesion")
-                
-        let firebaseAuth = Auth.auth()
-        do {
-            print("La sesion fue cerrada exitosamente")
-            
-            try firebaseAuth.signOut()
-            dismiss(animated: true, completion: nil)
-        } catch let signOutError as NSError {
-            print("Error al cerrar sesion: \(signOutError)")
-        }
-    }
-    
-    
     
     
     override func viewDidLoad() {

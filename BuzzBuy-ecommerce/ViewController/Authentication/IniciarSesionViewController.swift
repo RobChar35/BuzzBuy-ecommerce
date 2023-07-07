@@ -7,6 +7,9 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseCore
+import FirebaseDatabase
+import GoogleSignIn
 
 class IniciarSesionViewController: UIViewController {
 
@@ -17,6 +20,11 @@ class IniciarSesionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
         // Do any additional setup after loading the view.
     }
     
@@ -43,6 +51,29 @@ class IniciarSesionViewController: UIViewController {
     }
     
     @IBAction func IniciarSesionGoogleTapped(_ sender: Any) {
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
+          guard error == nil else {
+            return
+          }
+
+          guard let user = result?.user,
+            let idToken = user.idToken?.tokenString
+          else {
+              return
+          }
+
+          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                         accessToken: user.accessToken.tokenString)
+            Auth.auth().signIn(with: credential) { result, error in
+                print("Creando un nuevo usuario e iniciando sesion")
+                if let error = error {
+                    print("Se presento el siguiente error: \(error)")
+                } else {
+                    print("Inicio de sesion exitoso")
+                    self.performSegue(withIdentifier: "iniciarSesionSegue", sender: nil)
+                }
+            }
+        }
     }
     
     @IBAction func IniciarSesionFacebookTapped(_ sender: Any) {

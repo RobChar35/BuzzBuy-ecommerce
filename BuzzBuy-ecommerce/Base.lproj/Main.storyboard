@@ -157,11 +157,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Inventario" id="syw-8e-HcZ">
-                        <barButtonItem key="leftBarButtonItem" title="Cerrar Sesión" id="Xq1-o2-gzY">
-                            <connections>
-                                <action selector="cerrarSesión:" destination="YJ7-3O-pxD" id="dMF-GM-kua"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yNd-oB-MJj">
                             <connections>
                                 <segue destination="W3a-zy-6Nu" kind="show" id="pf2-xA-ew9"/>
@@ -176,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2pY-ot-dNL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="818.84057971014499" y="-598.66071428571422"/>
+            <point key="canvasLocation" x="1728.985507246377" y="-598.66071428571422"/>
         </scene>
         <!--Pre Compra View Controller-->
         <scene sceneID="lcQ-Am-RBy">
@@ -317,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KFI-ia-bPi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1389.8550724637682" y="-1234.1517857142856"/>
+            <point key="canvasLocation" x="2300" y="-1234.1517857142856"/>
         </scene>
         <!--Detalles del producto 1-->
         <scene sceneID="fKm-rF-QB0">
@@ -404,7 +399,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ms-yf-DGK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1759" y="-599"/>
+            <point key="canvasLocation" x="2668.1159420289855" y="-599.33035714285711"/>
         </scene>
         <!--Detalles del producto 2-->
         <scene sceneID="A9o-Go-lqU">
@@ -625,7 +620,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMP-Mz-MEx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-87" y="-599"/>
+            <point key="canvasLocation" x="821.73913043478262" y="-599.33035714285711"/>
         </scene>
         <!--Iniciar Sesion View Controller-->
         <scene sceneID="h36-wI-ivg">
