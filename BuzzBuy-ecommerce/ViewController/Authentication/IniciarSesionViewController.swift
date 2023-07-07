@@ -17,7 +17,6 @@ class IniciarSesionViewController: UIViewController {
     @IBOutlet weak var emailIniciarSesion: UITextField!
     @IBOutlet weak var passwordIniciarSesion: UITextField!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }

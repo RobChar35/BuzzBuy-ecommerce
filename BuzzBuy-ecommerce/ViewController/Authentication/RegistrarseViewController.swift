@@ -10,18 +10,19 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 import FirebaseCore
+
 import GoogleSignIn
+
 class RegistrarseViewController: UIViewController {
 
     // Textfields
     @IBOutlet weak var nombreRegistro: UITextField!
     @IBOutlet weak var apellidoRegistro: UITextField!
     
-    
+    @IBOutlet weak var usernameRegistro: UITextField!
+    @IBOutlet weak var emailRegistro: UITextField!
     @IBOutlet weak var passwordRegistro: UITextField!
     
-    @IBOutlet weak var emailRegistro: UITextField!
-    @IBOutlet weak var usernameRegistro: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
@@ -48,12 +49,15 @@ class RegistrarseViewController: UIViewController {
                 alert.addAction(btnCancelar)
                 self.present(alert, animated: true, completion: nil)
             } else {
-                 
+                let name = self.nombreRegistro.text!
+                let last_name = self.apellidoRegistro.text!
+                let full_name = name + " " + last_name
+                
                 let datosUsuario = [
                     "username": self.usernameRegistro.text!,
-                    "nombre": self.nombreRegistro.text!,
-                    "apellido": self.apellidoRegistro.text!,
-                    "email": user!.user.email
+                    "nombre": full_name,
+                    "email": user!.user.email,
+                    "fotoPerfil": ""
                 ]
                 
                 Database.database().reference().child("usuarios").child(user!.user.uid).child("datos_personales").setValue(datosUsuario)
@@ -62,7 +66,7 @@ class RegistrarseViewController: UIViewController {
                 
                 let btnOK = UIAlertAction(title: "Aceptar", style: .default, handler: {
                     (UIAlertAction) in
-                    self.performSegue(withIdentifier: "cuentaExistenteSegue", sender: nil)
+                    self.performSegue(withIdentifier: "registroSuccessSegue", sender: nil)
                 })
                 
                 alert.addAction(btnOK)
