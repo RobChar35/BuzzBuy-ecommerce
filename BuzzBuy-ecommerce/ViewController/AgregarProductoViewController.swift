@@ -11,6 +11,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import SDWebImage
 import FirebaseAuth
+import FirebaseAnalytics
 
 class AgregarProductoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -213,6 +214,7 @@ class AgregarProductoViewController: UIViewController, UIImagePickerControllerDe
                     if let error = error {
                         print("Error al editar el producto: \(error.localizedDescription)")
                     } else {
+                        Analytics.logEvent("editar_producto", parameters: nil)
                         print("Producto editado correctamente")
                         let alert = UIAlertController(title: "Éxito", message: "Registro actualizado satisfactoriamente", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -233,6 +235,7 @@ class AgregarProductoViewController: UIViewController, UIImagePickerControllerDe
                     if let error = error {
                         print("Error al agregar el producto: \(error.localizedDescription)")
                     } else {
+                        Analytics.logEvent("agregar_producto", parameters: nil)
                         print("Producto agregado correctamente")
                         let alert = UIAlertController(title: "Éxito", message: "Registro agregado correctamente", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

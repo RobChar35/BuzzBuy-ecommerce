@@ -12,6 +12,7 @@ import FirebaseAuth
 import FirebaseStorage
 
 import GoogleSignIn
+import FirebaseAnalytics
 
 class EditarPerfilViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
@@ -108,12 +109,15 @@ class EditarPerfilViewController: UIViewController, UIImagePickerControllerDeleg
                         usuarioRef.updateChildValues(["fotoPerfil": downloadURL.absoluteString])
                         
                         // Mostrar un mensaje de éxito o cualquier otro feedback necesario
+                        
+                        Analytics.logEvent("perfil_imagen_editado", parameters: nil)
                         print("Los datos se han actualizado correctamente")
                         self.navigationController?.popViewController(animated: true)
                     }
                 }
             } else {
                 // No se seleccionó ninguna imagen, continuar con la actualización de los datos sin imagen
+                Analytics.logEvent("perfil_editado", parameters: nil)
                 print("Los datos se han actualizado correctamente")
                 navigationController?.popViewController(animated: true)
             }

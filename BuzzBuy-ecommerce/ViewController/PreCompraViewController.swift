@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import FirebaseAnalytics
 class PreCompraViewController: UIViewController {
     var producto: Producto!
     var vendedorr: String = ""
@@ -102,6 +103,8 @@ class PreCompraViewController: UIViewController {
     @IBOutlet weak var imagen: UIImageView!
     
     @IBAction func comprar(_ sender: Any) {
+    
+        Analytics.logEvent("compra_producto", parameters: nil)
         if vendedorID == userLoggedId {
             let alertController = UIAlertController(title: "Alerta", message: "Usted no puede comprar su propio producto", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)

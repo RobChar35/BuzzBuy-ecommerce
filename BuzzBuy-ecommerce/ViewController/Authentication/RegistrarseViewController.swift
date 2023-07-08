@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 import FirebaseCore
+import FirebaseAnalytics
 
 import GoogleSignIn
 
@@ -35,6 +36,7 @@ class RegistrarseViewController: UIViewController {
     
     // Botones para registar usuario
     @IBAction func RegistrarTapped(_ sender: Any) {
+        Analytics.logEvent("registrar_sesion", parameters: nil)
         Auth.auth().createUser(withEmail: emailRegistro.text!, password: passwordRegistro.text!) {
             (user, error) in
             print("Creando usuario")
@@ -77,6 +79,7 @@ class RegistrarseViewController: UIViewController {
     }
     
     @IBAction func RegistrarGoogleTapped(_ sender: Any) {
+        Analytics.logEvent("registrar_google_tapped", parameters: nil)
         GIDSignIn.sharedInstance.signIn(withPresenting: self) {[unowned self] result, error in
             guard error == nil else {
                 return

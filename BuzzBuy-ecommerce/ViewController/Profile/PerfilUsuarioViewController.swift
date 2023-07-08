@@ -11,6 +11,7 @@ import FirebaseCore
 import FirebaseAuth
 import FirebaseDatabase
 import SDWebImage
+import FirebaseAnalytics
 
 class PerfilUsuarioViewController: UIViewController {
     
@@ -58,6 +59,7 @@ class PerfilUsuarioViewController: UIViewController {
     }
     
     @IBAction func cerrarSesionTapped(_ sender: Any) {
+        Analytics.logEvent("cerrar_sesion", parameters: nil)
         print("Cerrando sesion")
         
         let firebaseAuth = Auth.auth()
