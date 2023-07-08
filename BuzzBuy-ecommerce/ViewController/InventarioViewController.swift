@@ -322,7 +322,6 @@ class InventarioViewController: UIViewController, UITableViewDelegate, UITableVi
 }
 
 class CustomProductCell: UITableViewCell {
-    // Propiedades de la celda
     var nameLabel: UILabel!
     var descriptionLabel: UILabel!
     var priceLabel: UILabel!
@@ -330,11 +329,11 @@ class CustomProductCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
+        
         // Configurar la apariencia de la celda
         configureCellAppearance()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -363,76 +362,65 @@ class CustomProductCell: UITableViewCell {
 
         // Configurar las restricciones de diseño de la celda
         let views: [String: Any] = [
+            "productImageView": productImageView,
             "nameLabel": nameLabel,
             "descriptionLabel": descriptionLabel,
-            "priceLabel": priceLabel,
-            "productImageView": productImageView
+            "priceLabel": priceLabel
         ]
 
         let imageWidth: CGFloat = 20.0
-        let imageHeight: CGFloat = 40.0
+        let imageHeight: CGFloat = 20.0
 
         contentView.addConstraints([
-            NSLayoutConstraint(item: productImageView, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1.0, constant: 8.0),
-            NSLayoutConstraint(item: productImageView, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: productImageView, attribute: .trailing, relatedBy: .equal, toItem: contentView, attribute: .trailing, multiplier: 1.0, constant: -16.0),
+            NSLayoutConstraint(item: productImageView, attribute: .centerY, relatedBy: .equal, toItem: contentView, attribute: .centerY, multiplier: 1.0, constant: 0.0),
             NSLayoutConstraint(item: productImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: imageWidth),
             NSLayoutConstraint(item: productImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: imageHeight),
 
-            NSLayoutConstraint(item: nameLabel, attribute: .top, relatedBy: .equal, toItem: productImageView, attribute: .bottom, multiplier: 1.0, constant: 8.0),
             NSLayoutConstraint(item: nameLabel, attribute: .leading, relatedBy: .equal, toItem: contentView, attribute: .leading, multiplier: 1.0, constant: 16.0),
-            NSLayoutConstraint(item: nameLabel, attribute: .trailing, relatedBy: .equal, toItem: contentView, attribute: .trailing, multiplier: 1.0, constant: -16.0),
+            NSLayoutConstraint(item: nameLabel, attribute: .trailing, relatedBy: .equal, toItem: productImageView, attribute: .leading, multiplier: 1.0, constant: -8.0),
+            NSLayoutConstraint(item: nameLabel, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1.0, constant: 8.0),
 
-            NSLayoutConstraint(item: descriptionLabel, attribute: .top, relatedBy: .equal, toItem: nameLabel, attribute: .bottom, multiplier: 1.0, constant: 4.0),
             NSLayoutConstraint(item: descriptionLabel, attribute: .leading, relatedBy: .equal, toItem: nameLabel, attribute: .leading, multiplier: 1.0, constant: 0.0),
             NSLayoutConstraint(item: descriptionLabel, attribute: .trailing, relatedBy: .equal, toItem: nameLabel, attribute: .trailing, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: descriptionLabel, attribute: .top, relatedBy: .equal, toItem: nameLabel, attribute: .bottom, multiplier: 1.0, constant: 4.0),
 
-            NSLayoutConstraint(item: priceLabel, attribute: .top, relatedBy: .equal, toItem: descriptionLabel, attribute: .bottom, multiplier: 1.0, constant: 4.0),
             NSLayoutConstraint(item: priceLabel, attribute: .leading, relatedBy: .equal, toItem: nameLabel, attribute: .leading, multiplier: 1.0, constant: 0.0),
             NSLayoutConstraint(item: priceLabel, attribute: .trailing, relatedBy: .equal, toItem: nameLabel, attribute: .trailing, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: priceLabel, attribute: .bottom, relatedBy: .lessThanOrEqual, toItem: contentView, attribute: .bottom, multiplier: 1.0, constant: -8.0)
+            NSLayoutConstraint(item: priceLabel, attribute: .top, relatedBy: .equal, toItem: descriptionLabel, attribute: .bottom, multiplier: 1.0, constant: 4.0)
         ])
-    }
+        
+        let heightConstraint = contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 100.0)
+        heightConstraint.priority = .defaultHigh
+        heightConstraint.isActive = true
 
-    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
-        let size = image.size
-
-        let widthRatio = targetSize.width / size.width
-        let heightRatio = targetSize.height / size.height
-
-        let newSize: CGSize
-        if widthRatio > heightRatio {
-            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
-        } else {
-            newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
-        }
-
-        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        image.draw(in: rect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        return newImage
-    }
-
-    // Configurar los datos de la celda
-    func configure(with product: Producto) {
-        nameLabel.text = product.nombre
-        descriptionLabel.text = product.descripcion
-        priceLabel.text = product.precio
-
-        // Configurar la imagen del producto utilizando una URL o datos de imagen
-        if let imageURL = URL(string: product.imagenURL),
-           let imageData = try? Data(contentsOf: imageURL),
-           let image = UIImage(data: imageData) {
-            let resizedImage = resizeImage(image: image, targetSize: CGSize(width: 80.0, height: 80.0)) // Cambiar el tamaño de la imagen según tus necesidades
-            productImageView.image = resizedImage
-        } else {
-            // Si no se puede cargar la imagen, puedes mostrar una imagen de marcador de posición o dejarla vacía
-            productImageView.image = UIImage(named: "placeholder")
-        }
+        // Imagen del producto lado derecho
+        contentView.transform = CGAffineTransform(scaleX: -1, y: 1)
+        nameLabel.transform = CGAffineTransform(scaleX: -1, y: 1)
+        descriptionLabel.transform = CGAffineTransform(scaleX: -1, y: 1)
+        priceLabel.transform = CGAffineTransform(scaleX: -1, y: 1)
+        productImageView.transform = CGAffineTransform(scaleX: -1, y: 1)
     }
 }
+
+class YourTableViewController: UITableViewController {
+    // Tu código existente
+
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+           let footerView = UIView()
+           footerView.backgroundColor = UIColor.clear
+           return footerView
+       }
+       
+       override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+           return 50.0 // Ajusta el valor según el espacio vertical deseado entre las celdas
+           
+           tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+                   tableView.separatorColor = UIColor.clear
+       }
+}
+
+
 
 
 

@@ -101,19 +101,11 @@
             <objects>
                 <viewController id="YJ7-3O-pxD" customClass="InventarioViewController" customModule="BuzzBuy_ecommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZpC-Ef-ldN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Dp7-yZ-MbC">
-                                <rect key="frame" x="77" y="56" width="260" height="68"/>
-                                <segments>
-                                    <segment title="Todos"/>
-                                    <segment title="Categorias"/>
-                                    <segment title="Precios"/>
-                                </segments>
-                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BFe-hK-Czf">
-                                <rect key="frame" x="0.0" y="106" width="414" height="707"/>
+                                <rect key="frame" x="0.0" y="138" width="414" height="675"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="customCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customCell" textLabel="Flw-Kw-MUX" detailTextLabel="X2G-Zx-ZMW" rowHeight="54" style="IBUITableViewCellStyleSubtitle" id="Ijs-tu-0Aa" customClass="CustomCell" customModule="BuzzBuy_ecommerce" customModuleProvider="target">
@@ -142,14 +134,22 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Dp7-yZ-MbC">
+                                <rect key="frame" x="77" y="95" width="260" height="36"/>
+                                <segments>
+                                    <segment title="Todos"/>
+                                    <segment title="Categorias"/>
+                                    <segment title="Precios"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="emW-68-KLT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="emW-68-KLT" firstAttribute="bottom" secondItem="Dp7-yZ-MbC" secondAttribute="bottom" constant="690" id="9mP-0k-tVa"/>
+                            <constraint firstItem="emW-68-KLT" firstAttribute="bottom" secondItem="Dp7-yZ-MbC" secondAttribute="bottom" constant="683" id="9mP-0k-tVa"/>
                             <constraint firstItem="BFe-hK-Czf" firstAttribute="leading" secondItem="emW-68-KLT" secondAttribute="leading" id="Jzl-zd-pKA"/>
                             <constraint firstItem="Dp7-yZ-MbC" firstAttribute="leading" secondItem="emW-68-KLT" secondAttribute="leading" constant="77" id="OD9-1R-WTO"/>
-                            <constraint firstItem="Dp7-yZ-MbC" firstAttribute="top" secondItem="emW-68-KLT" secondAttribute="top" id="cTi-vh-c2D"/>
+                            <constraint firstItem="Dp7-yZ-MbC" firstAttribute="top" secondItem="emW-68-KLT" secondAttribute="top" constant="7" id="cTi-vh-c2D"/>
                             <constraint firstItem="emW-68-KLT" firstAttribute="bottom" secondItem="BFe-hK-Czf" secondAttribute="bottom" id="fY0-gd-cI4"/>
                             <constraint firstItem="BFe-hK-Czf" firstAttribute="top" secondItem="emW-68-KLT" secondAttribute="top" constant="50" id="ftk-rw-t8r"/>
                             <constraint firstItem="emW-68-KLT" firstAttribute="trailing" secondItem="Dp7-yZ-MbC" secondAttribute="trailing" constant="77" id="t3Y-1F-nTC"/>
@@ -176,14 +176,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2pY-ot-dNL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="818.84057971014499" y="-598.66071428571422"/>
+            <point key="canvasLocation" x="1526" y="-599"/>
         </scene>
         <!--Pre Compra View Controller-->
         <scene sceneID="lcQ-Am-RBy">
             <objects>
                 <viewController id="uVF-6d-mkR" customClass="PreCompraViewController" customModule="BuzzBuy_ecommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L5t-eX-1XI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1. Nombre del producto: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6d3-1H-RX8">
@@ -317,14 +317,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KFI-ia-bPi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1389.8550724637682" y="-1234.1517857142856"/>
+            <point key="canvasLocation" x="2300" y="-1234.1517857142856"/>
         </scene>
         <!--Detalles del producto 1-->
         <scene sceneID="fKm-rF-QB0">
             <objects>
                 <viewController id="W3a-zy-6Nu" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HTS-gh-NoC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1. Nombre del producto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gc4-pn-OGf">
@@ -404,7 +404,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ms-yf-DGK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1759" y="-599"/>
+            <point key="canvasLocation" x="2668.1159420289855" y="-599.33035714285711"/>
         </scene>
         <!--Detalles del producto 2-->
         <scene sceneID="A9o-Go-lqU">
@@ -620,12 +620,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="YJ7-3O-pxD" kind="relationship" relationship="rootViewController" id="Fne-KU-wHo"/>
+                        <segue destination="65n-Pc-4Ju" kind="relationship" relationship="rootViewController" id="Fne-KU-wHo"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMP-Mz-MEx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-87" y="-599"/>
+            <point key="canvasLocation" x="35" y="-599"/>
         </scene>
         <!--Iniciar Sesion View Controller-->
         <scene sceneID="h36-wI-ivg">
@@ -901,10 +901,30 @@
             </objects>
             <point key="canvasLocation" x="818.84057971014499" y="91.741071428571431"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="K2C-Lx-ouf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="65n-Pc-4Ju" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="5l4-g5-U6i"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zue-zB-cMA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YJ7-3O-pxD" kind="relationship" relationship="rootViewController" id="qeZ-nU-XSW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2YY-CO-avu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="818.84057971014499" y="-598.66071428571422"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Azi-HI-kRB"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" systemColor="linkColor"/>
     <resources>
         <image name="WhatsApp Image 2023-07-05 at 12.12.24" width="1084" height="1028"/>
         <image name="camera" catalog="system" width="128" height="94"/>
@@ -912,6 +932,9 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
