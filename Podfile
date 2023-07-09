@@ -9,7 +9,7 @@ target 'BuzzBuy-ecommerce' do
   pod 'FirebaseAuth'
   pod 'FirebaseAnalytics'
   pod 'GoogleSignIn'
-  
   pod 'FirebaseStorage'
   pod 'FirebaseDatabase'
+  pod 'SDWebImage'
 end
