@@ -10,13 +10,13 @@
 		58417FEE2A58B85500279CB9 /* PerfilUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58417FED2A58B85500279CB9 /* PerfilUsuarioViewController.swift */; };
 		58417FF02A58B8C500279CB9 /* EditarPerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58417FEF2A58B8C500279CB9 /* EditarPerfilViewController.swift */; };
 		58417FF22A58B9F300279CB9 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58417FF12A58B9F300279CB9 /* Usuario.swift */; };
+		585DE98A2A5A20CB00381016 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 585DE9892A5A20CA00381016 /* Assets.xcassets */; };
 		58BE5E542A3B960B008B2600 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58BE5E532A3B960B008B2600 /* GoogleService-Info.plist */; };
 		58BF94B82A34EC0300227668 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BF94B72A34EC0300227668 /* AppDelegate.swift */; };
 		58BF94BA2A34EC0300227668 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BF94B92A34EC0300227668 /* SceneDelegate.swift */; };
 		58BF94BC2A34EC0300227668 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BF94BB2A34EC0300227668 /* ViewController.swift */; };
 		58BF94BF2A34EC0300227668 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58BF94BD2A34EC0300227668 /* Main.storyboard */; };
 		58BF94C22A34EC0300227668 /* BuzzBuy_ecommerce.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 58BF94C02A34EC0300227668 /* BuzzBuy_ecommerce.xcdatamodeld */; };
-		58BF94C42A34EC0500227668 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58BF94C32A34EC0500227668 /* Assets.xcassets */; };
 		58BF94C72A34EC0500227668 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58BF94C52A34EC0500227668 /* LaunchScreen.storyboard */; };
 		58F968F02A3D09EC003956C4 /* InventarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F968EF2A3D09EC003956C4 /* InventarioViewController.swift */; };
 		58F968F42A3D0E7C003956C4 /* Producto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F968F32A3D0E7C003956C4 /* Producto.swift */; };
@@ -33,6 +33,7 @@
 		58417FED2A58B85500279CB9 /* PerfilUsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilUsuarioViewController.swift; sourceTree = "<group>"; };
 		58417FEF2A58B8C500279CB9 /* EditarPerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarPerfilViewController.swift; sourceTree = "<group>"; };
 		58417FF12A58B9F300279CB9 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		585DE9892A5A20CA00381016 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../merging-test/BuzzBuy-ecommerce/BuzzBuy-ecommerce/Assets.xcassets"; sourceTree = "<group>"; };
 		58BE5E532A3B960B008B2600 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		58BF94B42A34EC0300227668 /* BuzzBuy-ecommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BuzzBuy-ecommerce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58BF94B72A34EC0300227668 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +41,6 @@
 		58BF94BB2A34EC0300227668 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		58BF94BE2A34EC0300227668 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		58BF94C12A34EC0300227668 /* BuzzBuy_ecommerce.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BuzzBuy_ecommerce.xcdatamodel; sourceTree = "<group>"; };
-		58BF94C32A34EC0500227668 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58BF94C62A34EC0500227668 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58BF94C82A34EC0500227668 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58BF94DC2A35007600227668 /* BuzzBuy-ecommerce.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BuzzBuy-ecommerce.entitlements"; sourceTree = "<group>"; };
@@ -97,6 +97,7 @@
 		58BF94B62A34EC0300227668 /* BuzzBuy-ecommerce */ = {
 			isa = PBXGroup;
 			children = (
+				585DE9892A5A20CA00381016 /* Assets.xcassets */,
 				58F968F22A3D0E53003956C4 /* Modelos */,
 				58F968F12A3D0DE4003956C4 /* ViewController */,
 				58BE5E532A3B960B008B2600 /* GoogleService-Info.plist */,
@@ -105,7 +106,6 @@
 				58BF94B92A34EC0300227668 /* SceneDelegate.swift */,
 				58BF94BB2A34EC0300227668 /* ViewController.swift */,
 				58BF94BD2A34EC0300227668 /* Main.storyboard */,
-				58BF94C32A34EC0500227668 /* Assets.xcassets */,
 				58BF94C52A34EC0500227668 /* LaunchScreen.storyboard */,
 				58BF94C82A34EC0500227668 /* Info.plist */,
 				58BF94C02A34EC0300227668 /* BuzzBuy_ecommerce.xcdatamodeld */,
@@ -223,7 +223,7 @@
 			files = (
 				58BF94C72A34EC0500227668 /* LaunchScreen.storyboard in Resources */,
 				58BE5E542A3B960B008B2600 /* GoogleService-Info.plist in Resources */,
-				58BF94C42A34EC0500227668 /* Assets.xcassets in Resources */,
+				585DE98A2A5A20CB00381016 /* Assets.xcassets in Resources */,
 				58BF94BF2A34EC0300227668 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

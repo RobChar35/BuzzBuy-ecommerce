@@ -154,16 +154,17 @@ class FirstTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var productsTable: UITableView!
     
-    @IBOutlet weak var btnEditar: UIButton!
+    @IBOutlet weak var btnEditar: UIBarButtonItem!
     @IBAction func editar(_ sender: Any) {
-        if btnEditar.titleLabel?.text == "Editar"{
+        if btnEditar.title == "Editar"{
             productsTable.setEditing(false, animated: false)
-            btnEditar.setTitle("Eliminar", for: .normal)
+            btnEditar.title = "Eliminar"
         }else{
             productsTable.setEditing(true, animated: false)
-            btnEditar.setTitle("Editar", for: .normal)
+            btnEditar.title = "Editar"
         }
     }
+    
     /*
     // MARK: - Navigation
 
